@@ -15,5 +15,8 @@
         <module>micromall-order</module>
         <module>micromall-product</module>
         <module>micromall-ware</module>
+        <module>renren-fast</module>
+        <module>renren-generator</module>
+        <module>micromall-common</module>
     </modules>
 </project>

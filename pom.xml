@@ -12,11 +12,12 @@
     <modules>
         <module>micromall-coupon</module>
         <module>micromall-member</module>
+        <module>micromall-gateway</module>
         <module>micromall-order</module>
         <module>micromall-product</module>
         <module>micromall-ware</module>
         <module>renren-fast</module>
-        <module>renren-generator</module>
+        <!--<module>renren-generator</module>-->
         <module>micromall-common</module>
     </modules>
 </project>

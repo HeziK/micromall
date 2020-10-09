@@ -2,12 +2,12 @@ spring:
   datasource:
     username: root
     password: 123456
-    url: jdbc:mysql://192.168.233.144:3306/micromall_pms?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://127.0.0.1:3306/micromall_pms?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.233.144:8848
+        server-addr: 127.0.0.1:8848
   application:
     name: micromall-product
 

@@ -1,20 +1,29 @@
 spring:
-  datasource:
-    username: root
-    password: 123456
-    url: jdbc:mysql://127.0.0.1:3306/micromall_pms?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
-    driver-class-name: com.mysql.cj.jdbc.Driver
   cloud:
-    nacos:
-      discovery:
-        server-addr: 127.0.0.1:8848
-  application:
-    name: micromall-gateway
+    gateway:
+      routes:
+        - id: to_baidu
+          uri: https://www.baidu.com
+          predicates:
+            - Query=url,baidu
 
-mybatis-plus:
-  mapper-locations: classpath:mapper/**/*.xml
-  global-config:
-    db-config:
-      id-type: auto
-server:
-  port: 5000
+        - id: to_tencent
+          uri: https://www.qq.com
+          predicates:
+            - Query=url,qq
+
+        - id: product_route
+          uri: lb://micromall-product
+          predicates:
+            - Path=/api/product/**
+          filters:
+            - RewritePath=/api/(?<segment>/?.*), /$\{segment}
+
+        - id: admin_route
+          uri: lb://renren-fast
+          predicates:
+            - Path=/api/**
+          filters:
+            - RewritePath=/api/(?<segment>/?.*), /renren-fast/$\{segment}
+
+
